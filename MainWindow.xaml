@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OwlStudio"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        ResizeMode="NoResize"
+        WindowStyle="SingleBorderWindow"
+        Height="400" Width="650">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <ProgressBar x:Name="DownloadBar" Margin="44,212,43,169" Width="NaN"/>
-
+        <Button x:Name="B1" Content="Загрузить" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Click="Button_Click" />
+        <ProgressBar x:Name="DownloadBar" Margin="44,262,44,89" Width="NaN" Background="LightGray" BorderThickness="0"/>
+        <Label x:Name="L1" Content="Label" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="136" Foreground="LightGray"/>
+        <Label x:Name="L2" Content="Label" HorizontalAlignment="Left" Margin="470,295,0,0" VerticalAlignment="Top" Width="136" Foreground="LightGray"/>
+        <Grid.Background>
+            <VisualBrush>
+                <VisualBrush.Visual>
+                    <Grid>
+                        <Image Source="resources/uk.jpg" Stretch="UniformToFill"/>
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                                    <GradientStop Color="#000000" Offset="0"/>
+                                    <GradientStop Color="#00000000" Offset="0.5"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Grid>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Background>
     </Grid>
+
 </Window>
