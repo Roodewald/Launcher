@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="resources\download.png" />
     <None Remove="resources\name.png" />
+    <None Remove="resources\open-folder.png" />
     <None Remove="resources\uk.jpg" />
   </ItemGroup>
 
@@ -22,6 +23,7 @@
   <ItemGroup>
     <Resource Include="resources\download.png" />
     <Resource Include="resources\name.png" />
+    <Resource Include="resources\open-folder.png" />
     <Resource Include="resources\uk.jpg" />
   </ItemGroup>
 
