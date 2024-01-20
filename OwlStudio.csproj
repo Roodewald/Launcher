@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -10,11 +11,17 @@
 
   <ItemGroup>
     <None Remove="resources\download.png" />
+    <None Remove="resources\name.png" />
     <None Remove="resources\uk.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="resources\download.png" />
+    <Resource Include="resources\name.png" />
     <Resource Include="resources\uk.jpg" />
   </ItemGroup>
 

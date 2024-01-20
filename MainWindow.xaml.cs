@@ -50,7 +50,21 @@ namespace OwlStudio
             public long TotalBytesToReceive { get; set; }
         }
 
-        /*  Stages:
+		private void OpenFolderDialogButton_Click(object sender, RoutedEventArgs e)
+		{
+			
+			FolderBrowserDialog folderDialog = new FolderBrowserDialog();	
+			DialogResult result = folderDialog.ShowDialog();
+
+			
+			if (result == System.Windows.Forms.DialogResult.OK)
+			{
+				string selectedFolder = folderDialog.SelectedPath;
+				gamePath = Path.Combine(selectedFolder, "Game");
+			}
+		}
+
+		/*  Stages:
          *  0 - Game is not downloaded of found
          *  1 - Archive is downloaded now;
          *  2 - Archive dowload complite
