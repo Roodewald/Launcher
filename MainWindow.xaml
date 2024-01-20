@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:OwlStudio"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        WindowStyle="SingleBorderWindow"
+        WindowStyle="ThreeDBorderWindow"
+        Title="Launcher"
+        Icon="resources/download.png"
         Height="400" Width="650">
     <Grid>
         <Button x:Name="B1" Content="Загрузить" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Click="Button_Click" />
         <ProgressBar x:Name="DownloadBar" Margin="44,262,44,89" Width="NaN" Background="LightGray" BorderThickness="0"/>
-        <Label x:Name="L1" Content="Label" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="136" Foreground="LightGray"/>
-        <Label x:Name="L2" Content="Label" HorizontalAlignment="Left" Margin="470,295,0,0" VerticalAlignment="Top" Width="136" Foreground="LightGray"/>
+        <Label x:Name="L1" Content="Label" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="293" Foreground="LightGray"/>
         <Grid.Background>
             <VisualBrush>
                 <VisualBrush.Visual>
