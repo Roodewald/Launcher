@@ -14,6 +14,7 @@ namespace OwlStudio
         private static int gameReady = 0;
         bool pressed = false;
         CancellationTokenSource token;
+        private Stopwatch stopwatch = new Stopwatch();
 
         public MainWindow()
         {
@@ -30,6 +31,7 @@ namespace OwlStudio
             }
             else if (!pressed)
             {
+                stopwatch.Start();
                 DownloadBar.Visibility = Visibility.Visible;
                 pressed = true;
                 token = new CancellationTokenSource();
@@ -51,8 +53,10 @@ namespace OwlStudio
             B1.Content = "Отменить";
             if (e.Mode == 1)
             {
+                double downloadSpeedBytesPerSecond = (e.ProcessedData) / stopwatch.Elapsed.TotalSeconds;
                 DownloadBar.Value = (float)e.ProcessedData / e.TotalData * 100;
-                L1.Content = $"Скачано: {e.ProcessedData / (1024 * 1024):F2} MB / {e.TotalData / (1024 * 1024):F2} MB";
+                L1.Content = $"Скачано: {e.ProcessedData / (1024 * 1024):F2} MB / {e.TotalData / (1024 * 1024):F2} MB" +
+                $"\nСкорость: {downloadSpeedBytesPerSecond / (1024 * 1024) :F2} MB/с"; 
             }
             else if (e.Mode == 2)
             {
@@ -62,7 +66,8 @@ namespace OwlStudio
         }
         private void ResetBar()
         {
-
+            stopwatch.Stop();
+            stopwatch.Reset();
             DownloadBar.Value = 0;
             DownloadBar.Visibility = Visibility.Collapsed;
             GameDirB.Visibility = Visibility.Collapsed;

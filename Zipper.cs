@@ -19,7 +19,7 @@ namespace OwlStudio
                 if (token.IsCancellationRequested)
                 {
                     zip.Dispose();
-                    Directory.Delete(extractPath,true);
+                    Directory.Delete(extractPath, true);
                     return 1;
                 }
 

@@ -20,7 +20,7 @@
             <Image Source="resources/game-dir.png" Width="25" Height="25"/>
         </Button>
         <ProgressBar x:Name="DownloadBar" Height="30" Background="LightGray" BorderThickness="0" VerticalAlignment="Top" Margin="44,265,44,0"/>
-        <Label x:Name="L1" Content="" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="293" Foreground="LightGray"/>
+        <Label x:Name="L1" Content="" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="248" Foreground="LightGray" Height="74"/>
         <Grid.Background>
             <VisualBrush>
                 <VisualBrush.Visual>

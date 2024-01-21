@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>resources\program.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,10 @@
     <None Remove="resources\name.png" />
     <None Remove="resources\open-folder.png" />
     <None Remove="resources\uk.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="resources\program.ico" />
   </ItemGroup>
 
   <ItemGroup>
