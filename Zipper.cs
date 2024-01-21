@@ -19,7 +19,7 @@ namespace OwlStudio
                 if (token.IsCancellationRequested)
                 {
                     zip.Dispose();
-                    Directory.Delete(extractPath);
+                    Directory.Delete(extractPath,true);
                     return 1;
                 }
 
@@ -45,7 +45,6 @@ namespace OwlStudio
                     return -1;
                 }, token);
 
-                //Если нет ошибок продолжить работу или выйти из метода
                 if (extractRes != -1) return extractRes;
 
                 var e = new UpdateData()

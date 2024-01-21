@@ -39,9 +39,9 @@ namespace OwlStudio
             }
             else
             {
-                ResetBar();
                 pressed = false;
                 token?.Cancel();
+                ResetBar();
             }
         }
 
