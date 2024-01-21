@@ -18,6 +18,7 @@ namespace OwlStudio
         public MainWindow()
         {
             InitializeComponent();
+            ResetBar();
             progressBarUpdtaeHandler += UpdateBar;
         }
 
@@ -29,12 +30,12 @@ namespace OwlStudio
             }
             else if (!pressed)
             {
+                DownloadBar.Visibility = Visibility.Visible;
                 pressed = true;
                 token = new CancellationTokenSource();
                 int res = await Downloader.DownloadFileAsync(downloadPath, downloadFileName, progressBarUpdtaeHandler, token.Token);
-                if (res == 0) res = Ziper.Unzip(downloadFileName, gamePath, progressBarUpdtaeHandler, token.Token);
+                if (res == 0) res = await Zipper.Unzip(downloadFileName, gamePath, progressBarUpdtaeHandler, token.Token);
                 if (res == 0) GetReadyToGame();
-
             }
             else
             {
@@ -44,18 +45,7 @@ namespace OwlStudio
             }
         }
 
-        private void OpenFolderDialogButton_Click(object sender, RoutedEventArgs e)
-        {
-            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
-            DialogResult result = folderDialog.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
-                string selectedFolder = folderDialog.SelectedPath;
-                gamePath = Path.Combine(selectedFolder, "Game");
-            }
-        }
-
-        public void UpdateBar(object sender, UpdateData e)
+        private void UpdateBar(object sender, UpdateData e)
         {
 
             B1.Content = "Отменить";
@@ -70,18 +60,37 @@ namespace OwlStudio
                 L1.Content = $"Распакованно: {e.ProcessedData} / из: {e.TotalData}";
             }
         }
-        public void ResetBar()
+        private void ResetBar()
         {
+
             DownloadBar.Value = 0;
+            DownloadBar.Visibility = Visibility.Collapsed;
+            GameDirB.Visibility = Visibility.Collapsed;
             L1.Content = string.Empty;
             B1.Content = "Загрузить";
         }
-        public void GetReadyToGame()
+        private void GetReadyToGame()
         {
             pressed = false;
             gameReady = 1;
             ResetBar();
+            GameDirB.Visibility = Visibility.Visible;
             B1.Content = "Играть";
+        }
+
+        private void OpenFolderDialogButton_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog folderDialog = new FolderBrowserDialog();
+            DialogResult result = folderDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedFolder = folderDialog.SelectedPath;
+                gamePath = Path.Combine(selectedFolder, "Game");
+            }
+        }
+        private void OpenGameFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", gamePath);
         }
     }
 }

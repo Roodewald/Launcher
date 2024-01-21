@@ -7,6 +7,7 @@ namespace OwlStudio
     {
         public static async Task<int> DownloadFileAsync(string downloadPath, string destinationPath, ProgressBarUpdateHandler progressBarUpdtaeHandler, CancellationToken token)
         {
+            //Валидация данных
             if (!Directory.Exists(downloadPath))
             {
                 Directory.CreateDirectory(downloadPath);
@@ -16,7 +17,7 @@ namespace OwlStudio
                 return 0;
             }
 
-            string url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/8ASLEMHdPfB6jQ";
+            string url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1Xb5JEBERELCJQ";
             using (HttpClient client = new HttpClient())
             using (HttpResponseMessage response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
             using (Stream contentStream = await response.Content.ReadAsStreamAsync(),

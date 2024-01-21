@@ -10,18 +10,16 @@
         Title="Launcher"
         Icon="resources/download.png"
         Height="400" Width="650">
+    
     <Grid>
-
         <Button x:Name="B1" Content="Загрузить" HorizontalAlignment="Center" Margin="0,323,0,0" VerticalAlignment="Top" Click="Button_Click" />
         <Button Click="OpenFolderDialogButton_Click" VerticalAlignment="Bottom" Height="30" Width="30" HorizontalAlignment="Right">
             <Image Source="resources/open-folder.png" Width="20" Height="20"/>
         </Button>
-
-
-
-
+        <Button x:Name="GameDirB" Click="OpenGameFolderButton_Click" VerticalAlignment="Bottom" Height="30" Width="30" HorizontalAlignment="Left">
+            <Image Source="resources/game-dir.png" Width="25" Height="25"/>
+        </Button>
         <ProgressBar x:Name="DownloadBar" Height="30" Background="LightGray" BorderThickness="0" VerticalAlignment="Top" Margin="44,265,44,0"/>
-
         <Label x:Name="L1" Content="" HorizontalAlignment="Left" Margin="44,295,0,0" VerticalAlignment="Top" Width="293" Foreground="LightGray"/>
         <Grid.Background>
             <VisualBrush>
